@@ -1,0 +1,11 @@
+# Demo dependencies for the AI Agent Harness series.
+# Python 3.9+ (annotations kept 3.9-safe).
+#
+# Install:  pip install -r demos/requirements.txt
+#
+# Trimmed 2026-07-18 to what the demos actually import, and again 2026-09-10 when the
+# vendor SDK went away: every model call now goes through demos/_llm.py over plain HTTP
+# to OpenRouter, so `requests` is the only client we need.
+
+requests>=2.31
+python-dotenv>=1.0
