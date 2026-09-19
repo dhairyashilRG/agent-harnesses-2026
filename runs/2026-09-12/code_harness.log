@@ -1,0 +1,24 @@
+<site-packages>/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+============================================================
+DEMO: Code-Based Harness
+(Emerging Trend: Code as Primary Substrate)
+============================================================
+
+🎯 Task: Create a function that calculates the factorial of a number
+
+📝 Step 1: Generating solution code...
+Traceback (most recent call last):
+  File "./demos/08_future/code_harness.py", line 213, in <module>
+    demo_code_harness()
+  File "./demos/08_future/code_harness.py", line 185, in demo_code_harness
+    result = harness.solve_task(
+  File "./demos/08_future/code_harness.py", line 48, in solve_task
+    solution_code = self._generate_solution_code(task_description)
+  File "./demos/08_future/code_harness.py", line 95, in _generate_solution_code
+    reply = llm_text([{"role": "user", "content": prompt}], max_tokens=max(1024, 2500), temperature=0)
+  File "./demos/_llm.py", line 117, in text
+    return (chat(messages, **kw)["message"].get("content") or "").strip()
+  File "./demos/_llm.py", line 93, in chat
+    raise RuntimeError(f"OpenRouter {r.status_code}: {r.text[:400]}")
+RuntimeError: OpenRouter 402: {"error":{"message":"This request would exceed your available credits given your current in-flight requests. Retry after in-flight requests settle, or add credits.","code":402,"metadata":{"reason":"in_flight_budget_exhausted","limit_source":"openrouter_in_flight_budget","remedy_hint":"Retry after your in-flight requests settle (see the Retry-After header). Adding credits at https://openrouter.ai/s

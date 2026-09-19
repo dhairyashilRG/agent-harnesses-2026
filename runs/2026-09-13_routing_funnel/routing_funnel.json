@@ -1,0 +1,50 @@
+{
+  "captured": "2026-09-13",
+  "why": "Episodes 6, 8 and 9 show this error as a real capture. This is that capture.",
+  "request": {
+    "model": "minimax/minimax-m3",
+    "tools": [
+      "calculator"
+    ],
+    "provider": {
+      "order": [
+        "coreweave/fp4"
+      ],
+      "allow_fallbacks": false
+    }
+  },
+  "http_status": 404,
+  "response": {
+    "error": {
+      "message": "No endpoints found for minimax/minimax-m3.",
+      "code": 404,
+      "metadata": {
+        "routing_funnel": [
+          {
+            "step": "Initial Endpoints",
+            "endpoint_count": 12
+          },
+          {
+            "step": "Filter by Tool Compatibility",
+            "endpoint_count": 8
+          },
+          {
+            "step": "Filter by Fallback",
+            "endpoint_count": 0
+          }
+        ]
+      }
+    }
+  },
+  "endpoints_at_capture": {
+    "total": 12,
+    "tool_capable": 8,
+    "not_tool_capable": 4,
+    "without_tools": [
+      "coreweave/fp4",
+      "gmicloud/fp8",
+      "streamlake/fp8",
+      "sambanova"
+    ]
+  }
+}

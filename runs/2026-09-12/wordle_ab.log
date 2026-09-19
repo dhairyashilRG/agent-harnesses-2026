@@ -1,0 +1,89 @@
+<site-packages>/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+========================================================================
+ROUND 1/5   model=deepseek-flash   secret word withheld from both runs
+========================================================================
+  [A] naked model — plain chat, no tools
+    A guess 1: about -> BBYYY   (6 candidates remain)
+    A guess 2: no guess — spent 16000 of 16000 completion tokens (16000 of them reasoning) without emitting a guess
+    A guess 2: touch -> YGGBB   (1 candidates remain)
+    A guess 3: route -> GGGGG   (1 candidates remain)
+  [B] same model — code-writing harness (REPL + eviction + verification)
+    B guess 1: alert -> BBYYY   (11 candidates remain, 1 REPL runs)
+    B guess 2: noise -> BGBBG   (1 candidates remain, 3 REPL runs)
+    B guess 3: route -> GGGGG   (1 candidates remain, 4 REPL runs)
+
+  answer was: route
+  A naked    : solved in 3   rhae-style score 1.150   tokens 25159
+  B harnessed: solved in 3   rhae-style score 1.150   tokens 12689  repl_runs=4
+
+========================================================================
+ROUND 2/5   model=deepseek-flash   secret word withheld from both runs
+========================================================================
+  [A] naked model — plain chat, no tools
+    A guess 1: about -> YYYBB   (1 candidates remain)
+    A guess 2: no guess — spent 15999 of 16000 completion tokens (15999 of them reasoning) without emitting a guess
+    A guess 2: board -> GGGGG   (1 candidates remain)
+  [B] same model — code-writing harness (REPL + eviction + verification)
+    B guess 1: alert -> YBBGB   (4 candidates remain, 1 REPL runs)
+    B guess 2: board -> GGGGG   (1 candidates remain, 2 REPL runs)
+
+  answer was: board
+  A naked    : solved in 2   rhae-style score 1.150   tokens 17427
+  B harnessed: solved in 2   rhae-style score 1.150   tokens 3445  repl_runs=2
+
+========================================================================
+ROUND 3/5   model=deepseek-flash   secret word withheld from both runs
+========================================================================
+  [A] naked model — plain chat, no tools
+    A guess 1: house -> YBBBY   (15 candidates remain)
+    A guess 2: teach -> BYYBY   (1 candidates remain)
+    A guess 3: ahead -> GGGGG   (1 candidates remain)
+  [B] same model — code-writing harness (REPL + eviction + verification)
+    B guess 1: later -> BYBYB   (19 candidates remain, 1 REPL runs)
+    B guess 2: phase -> BGYBY   (1 candidates remain, 3 REPL runs)
+    B guess 3: ahead -> GGGGG   (1 candidates remain, 4 REPL runs)
+
+  answer was: ahead
+  A naked    : solved in 3   rhae-style score 1.150   tokens 3811
+  B harnessed: solved in 3   rhae-style score 1.150   tokens 12114  repl_runs=4
+
+========================================================================
+ROUND 4/5   model=deepseek-flash   secret word withheld from both runs
+========================================================================
+  [A] naked model — plain chat, no tools
+    A guess 1: about -> YBBBY   (30 candidates remain)
+    A guess 2: train -> YBGBY   (1 candidates remain)
+    A guess 3: stand -> GGGGG   (1 candidates remain)
+  [B] same model — code-writing harness (REPL + eviction + verification)
+    B guess 1: arise -> YBBYB   (5 candidates remain, 1 REPL runs)
+    B guess 2: thank -> YBGGB   (1 candidates remain, 3 REPL runs)
+    B guess 3: stand -> GGGGG   (1 candidates remain, 3 REPL runs)
+
+  answer was: stand
+  A naked    : solved in 3   rhae-style score 1.150   tokens 7561
+  B harnessed: solved in 3   rhae-style score 1.150   tokens 13614  repl_runs=3
+
+========================================================================
+ROUND 5/5   model=deepseek-flash   secret word withheld from both runs
+========================================================================
+  [A] naked model — plain chat, no tools
+    A guess 1: apple -> BBBBY   (58 candidates remain)
+  [B] same model — code-writing harness (REPL + eviction + verification)
+    B guess 1: raise -> BBBBY   (23 candidates remain, 1 REPL runs)
+    B guess 2: noted -> YBBYB   (2 candidates remain, 2 REPL runs)
+    B guess 3: bench -> BYYBB   (1 candidates remain, 3 REPL runs)
+    B guess 4: enemy -> GGGGG   (1 candidates remain, 3 REPL runs)
+
+  answer was: enemy
+  A naked    : FAILED (6/6 used)   rhae-style score 0.000   tokens 2481
+  B harnessed: solved in 4   rhae-style score 1.000   tokens 12428  repl_runs=3
+
+========================================================================
+TALLY over 5 round(s):  harness better 1, naked better 0, ties 4
+mean rhae-style score:  A naked 0.920   B harnessed 1.120
+(baseline = 4 guesses, a demo parameter — see docstring)
+One round is an anecdote. Report the tally you actually got, including
+any round the naked model wins.
+========================================================================
+wrote runs/2026-09-12/wordle_ab_verify.json  (45 turn events)

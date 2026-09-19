@@ -1,0 +1,17 @@
+$ curl -s https://openrouter.ai/api/v1/chat/completions \
+    -d '{"model":"minimax/minimax-m3", "tools":[...],
+         "provider":{"order":["coreweave/fp4"],"allow_fallbacks":false}}'
+
+{
+  "error": {
+    "message": "No endpoints found for minimax/minimax-m3.",
+    "code": 404,
+    "metadata": {
+      "routing_funnel": [
+        { "step": "Initial Endpoints",              "endpoint_count": 12 },
+        { "step": "Filter by Tool Compatibility",   "endpoint_count": 8  },
+        { "step": "Filter by Fallback",             "endpoint_count": 0  }
+      ]
+    }
+  }
+}

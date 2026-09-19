@@ -1,0 +1,448 @@
+{
+ "model": "deepseek-flash",
+ "seed": 42,
+ "rounds": [
+  {
+   "round": 1,
+   "answer": "route",
+   "a": {
+    "solved": true,
+    "guesses": 2,
+    "tokens": 1439
+   },
+   "b": {
+    "solved": true,
+    "guesses": 2,
+    "tokens": 3096,
+    "repl_runs": 2
+   }
+  },
+  {
+   "round": 2,
+   "answer": "board",
+   "a": {
+    "solved": true,
+    "guesses": 2,
+    "tokens": 4606
+   },
+   "b": {
+    "solved": true,
+    "guesses": 3,
+    "tokens": 10867,
+    "repl_runs": 3
+   }
+  },
+  {
+   "round": 3,
+   "answer": "ahead",
+   "a": {
+    "solved": false,
+    "guesses": null,
+    "tokens": 18059
+   },
+   "b": {
+    "solved": true,
+    "guesses": 3,
+    "tokens": 7503,
+    "repl_runs": 2
+   }
+  },
+  {
+   "round": 4,
+   "answer": "stand",
+   "a": {
+    "solved": false,
+    "guesses": null,
+    "tokens": 1143
+   },
+   "b": {
+    "solved": true,
+    "guesses": 3,
+    "tokens": 17220,
+    "repl_runs": 4
+   }
+  },
+  {
+   "round": 5,
+   "answer": "enemy",
+   "a": {
+    "solved": false,
+    "guesses": null,
+    "tokens": 2420
+   },
+   "b": {
+    "solved": true,
+    "guesses": 3,
+    "tokens": 11212,
+    "repl_runs": 4
+   }
+  }
+ ],
+ "max_tokens": 16000,
+ "max_guesses": 6,
+ "words": 481,
+ "baseline_guesses": 4,
+ "utc": "2026-09-12T07:14:36.195778+00:00",
+ "tally": {
+  "harness_better": 3,
+  "naked_better": 1,
+  "ties": 1
+ },
+ "mean_rhae": {
+  "a": 0.45999999999999996,
+  "b": 1.15
+ },
+ "tokens": {
+  "a": 27667,
+  "b": 49898
+ },
+ "solved": {
+  "a": 2,
+  "b": 5
+ },
+ "trace": [
+  {
+   "round": 1,
+   "run": "A",
+   "event": "guess",
+   "guess_no": 1,
+   "guess": "raise",
+   "feedback": "GBBBG",
+   "left": 1,
+   "tokens": 944
+  },
+  {
+   "round": 1,
+   "run": "A",
+   "event": "guess",
+   "guess_no": 2,
+   "guess": "route",
+   "feedback": "GGGGG",
+   "left": 1,
+   "tokens": 1439
+  },
+  {
+   "round": 1,
+   "run": "B",
+   "event": "repl",
+   "guess_no": 1,
+   "code": "from collections import Counter\n\nletter_freq = Counter()\nfor w in WORDS:\n    for c in set(w):\n        letter_freq[c] += 1\n\ndef score(w):\n    return sum(letter_freq[c] for c in set(w))\n\nprint(\"candidates:\", len(WORDS))\nfor w in sorted(WORDS, key=score, reverse=True)[:25]:\n    print(w, score(w))",
+   "out": "candidates: 481\nalert 944\nalter 944\nlater 944\nearth 925\nheart 925\ntrade 913\narise 912\nraise 912\nstore 901\nlaser 894\ntries 892\nleast 886\ngreat 884\nlearn 875\nshare 875\nother 870\nafter 868\nwater 866\nratio 859\nroute 858\nclear 851\ntried 849\ndealt 843\nextra 833\nspare 833"
+  },
+  {
+   "round": 1,
+   "run": "B",
+   "event": "guess",
+   "guess_no": 1,
+   "guess": "raise",
+   "feedback": "GBBBG",
+   "left": 1,
+   "tokens": 1877,
+   "repl_runs": 1
+  },
+  {
+   "round": 1,
+   "run": "B",
+   "event": "repl",
+   "guess_no": 2,
+   "code": "def match(g, fb, w):\n    for i,(c,f) in enumerate(zip(g,fb)):\n        if f=='G' and w[i]!=c: return False\n        if f=='B' and c in w: return False\n    # Y not needed here but include for generality\n    return True\n\ncands = [w for w in WORDS if match('raise','GBBBG',w)]\nprint(len(cands))\nprint(cands[:100])",
+   "out": "1\n['route']"
+  },
+  {
+   "round": 1,
+   "run": "B",
+   "event": "guess",
+   "guess_no": 2,
+   "guess": "route",
+   "feedback": "GGGGG",
+   "left": 1,
+   "tokens": 3096,
+   "repl_runs": 2
+  },
+  {
+   "round": 2,
+   "run": "A",
+   "event": "guess",
+   "guess_no": 1,
+   "guess": "raise",
+   "feedback": "YYBBB",
+   "left": 23,
+   "tokens": 175
+  },
+  {
+   "round": 2,
+   "run": "A",
+   "event": "guess",
+   "guess_no": 2,
+   "guess": "board",
+   "feedback": "GGGGG",
+   "left": 1,
+   "tokens": 4606
+  },
+  {
+   "round": 2,
+   "run": "B",
+   "event": "repl",
+   "guess_no": 1,
+   "code": "from collections import Counter\npos=[Counter() for _ in range(5)]\ncnt=Counter()\nfor w in WORDS:\n    cnt.update(set(w))\n    for i,c in enumerate(w): pos[i][c]+=1\nsc=[]\nfor w in WORDS:\n    s=sum(pos[i][c] for i,c in enumerate(w))+sum(cnt[c] for c in set(w))\n    sc.append((s,w))\nfor s,w in sorted(sc, reverse=True)[:15]:\n    print(w, s)",
+   "out": "arise 1245\ntrade 1226\nshare 1217\nraise 1198\nstore 1191\nalert 1177\ntries 1158\nalter 1156\nlater 1153\nheart 1153\ntried 1142\nspare 1141\ngreat 1139\nleast 1136\nroute 1133"
+  },
+  {
+   "round": 2,
+   "run": "B",
+   "event": "guess",
+   "guess_no": 1,
+   "guess": "arise",
+   "feedback": "YYBBB",
+   "left": 12,
+   "tokens": 2445,
+   "repl_runs": 1
+  },
+  {
+   "round": 2,
+   "run": "B",
+   "event": "repl",
+   "guess_no": 2,
+   "code": "HISTORY=[(\"arise\",\"YYBBB\")]\ndef consistent(w):\n    for g,fb in HISTORY:\n        # handle unique guess letters simply\n        for i,(c,f) in enumerate(zip(g,fb)):\n            if f=='B':\n                if c in w: return False\n            elif f=='G':\n                if w[i]!=c: return False\n            elif f=='Y':\n                if w[i]==c: return False\n                if c not in w: return False\n    return True\ncands=[w for w in WORDS if consistent(w)]\nprint(len(cands))\nprint(cands[:100])",
+   "out": "12\n['board', 'carry', 'chart', 'guard', 'major', 'march', 'mayor', 'moral', 'party', 'roman', 'royal', 'rural']"
+  },
+  {
+   "round": 2,
+   "run": "B",
+   "event": "repl",
+   "guess_no": 2,
+   "code": "from collections import Counter\ncands=['board','carry','chart','guard','major','march','mayor','moral','party','roman','royal','rural']\n# score candidates by letter frequency among candidates, pick actual candidate guess\ndef score(w):\n    s=0\n    for i,c in enumerate(w):\n        s+=sum(1 for x in cands if x[i]==c)\n        s+=sum(1 for x in cands if c in x and x[i]!=c)\n    return s\nfor w in sorted(cands,key=score,reverse=True):\n    print(w,score(w))",
+   "out": "carry 43\nrural 41\nmayor 39\nmoral 38\nroyal 37\nmajor 36\nroman 36\nmarch 34\nboard 33\nchart 31\nparty 31\nguard 29"
+  },
+  {
+   "round": 2,
+   "run": "B",
+   "event": "guess",
+   "guess_no": 2,
+   "guess": "march",
+   "feedback": "BYYBB",
+   "left": 3,
+   "tokens": 8742,
+   "repl_runs": 3
+  },
+  {
+   "round": 2,
+   "run": "B",
+   "event": "guess",
+   "guess_no": 3,
+   "guess": "board",
+   "feedback": "GGGGG",
+   "left": 1,
+   "tokens": 10867,
+   "repl_runs": 3
+  },
+  {
+   "round": 3,
+   "run": "A",
+   "event": "guess",
+   "guess_no": 1,
+   "guess": "audio",
+   "feedback": "GBYBB",
+   "left": 3,
+   "tokens": 871
+  },
+  {
+   "round": 3,
+   "run": "A",
+   "event": "budget_exhausted",
+   "guess_no": 2,
+   "completion": 16000,
+   "reasoning": 16000,
+   "max_tokens": 16000
+  },
+  {
+   "round": 3,
+   "run": "B",
+   "event": "repl",
+   "guess_no": 1,
+   "code": "from collections import Counter\nimport math\ncands=list(WORDS)\ndef pat(g,w):\n    r=['B']*5; u=[0]*5\n    for i in range(5):\n        if g[i]==w[i]: r[i]='G'; u[i]=1\n    for i in range(5):\n        if r[i]=='G': continue\n        for j in range(5):\n            if not u[j] and g[i]==w[j]:\n                r[i]='Y'; u[j]=1; break\n    return ''.join(r)\ncnt=Counter(c for w in cands for c in w)\ntop=sorted(WORDS, key=lambda g: sum(cnt[c] for c in set(g)), reverse=True)[:500]\nN=len(cands)\nres=[]\nfor g in top:\n    pc=Counter(pat(g,w) for w in cands)\n    ent=-sum((c/N)*math.log2(c/N) for c in pc.values())\n    avg=sum(c*c for c in pc.values())/N\n    res.append((ent,avg,g))\nres.sort(reverse=True)\nfor e,a,g in res[:10]: print(g, round(e,3), round(a,1))",
+   "out": "arise 5.9 10.7\ntrade 5.86 12.3\nalert 5.83 12.6\nraise 5.797 11.9\ntries 5.737 13.2\nshare 5.72 13.9\nleast 5.709 14.9\nheart 5.666 14.9\nstore 5.66 13.8\ntrain 5.646 14.0"
+  },
+  {
+   "round": 3,
+   "run": "B",
+   "event": "guess",
+   "guess_no": 1,
+   "guess": "arise",
+   "feedback": "GBBBY",
+   "left": 2,
+   "tokens": 3551,
+   "repl_runs": 1
+  },
+  {
+   "round": 3,
+   "run": "B",
+   "event": "repl",
+   "guess_no": 2,
+   "code": "import math\nfrom collections import Counter\ncands=list(WORDS)\ndef pat(g,w):\n    r=['B']*5; u=[0]*5\n    for i in range(5):\n        if g[i]==w[i]: r[i]='G'; u[i]=1\n    for i in range(5):\n        if r[i]=='G': continue\n        for j in range(5):\n            if not u[j] and g[i]==w[j]:\n                r[i]='Y'; u[j]=1; break\n    return ''.join(r)\nHISTORY=[('arise','GBBBY')]\nfor g,f in HISTORY:\n    cands=[w for w in cands if pat(g,w)==f]\nprint(len(cands), cands[:50])",
+   "out": "2 ['agent', 'ahead']"
+  },
+  {
+   "round": 3,
+   "run": "B",
+   "event": "guess",
+   "guess_no": 2,
+   "guess": "agent",
+   "feedback": "GBGBB",
+   "left": 1,
+   "tokens": 6227,
+   "repl_runs": 2
+  },
+  {
+   "round": 3,
+   "run": "B",
+   "event": "guess",
+   "guess_no": 3,
+   "guess": "ahead",
+   "feedback": "GGGGG",
+   "left": 1,
+   "tokens": 7503,
+   "repl_runs": 2
+  },
+  {
+   "round": 4,
+   "run": "B",
+   "event": "repl",
+   "guess_no": 1,
+   "code": "from collections import Counter\ncand = WORDS[:]\nfor g, fb in HISTORY:\n    # (HISTORY empty now; proper duplicate handling can come later)\n    pass\nfreq = Counter(''.join(cand))\npos = [Counter(w[i] for w in cand) for i in range(5)]\ndef score(w):\n    return sum(freq[ch] for ch in set(w)) + sum(pos[i][w[i]] for i in range(5))\nprint(len(cand))\nfor w in sorted(cand, key=lambda w: (-score(w), w))[:20]:\n    print(w, score(w))",
+   "out": "481\narise 1318\ntrade 1294\nshare 1289\nraise 1271\nstore 1270\nalert 1256\nalter 1235\nlater 1232\ntries 1229\nheart 1222\nspare 1216\nleast 1215\ngreat 1207\nroute 1202\ntried 1202\nstone 1200\nalone 1193\nstage 1186\ngrace 1180\nplate 1174"
+  },
+  {
+   "round": 4,
+   "run": "B",
+   "event": "guess",
+   "guess_no": 1,
+   "guess": "arise",
+   "feedback": "YBBYB",
+   "left": 5,
+   "tokens": 2701,
+   "repl_runs": 1
+  },
+  {
+   "round": 4,
+   "run": "B",
+   "event": "repl",
+   "guess_no": 2,
+   "code": "cand = WORDS[:]\nfor g, fb in HISTORY:\n    def ok(w):\n        # count requirements\n        gcount = {}\n        wcount = {}\n        for i, (gc, fc) in enumerate(zip(g, fb)):\n            if fc == 'G':\n                if w[i] != gc: return False\n                wcount[gc] = wcount.get(gc, 0) + 1\n            elif fc == 'Y':\n                if w[i] == gc: return False\n                wcount[gc] = wcount.get(gc, 0) + 1\n        for i, (gc, fc) in enumerate(zip(g, fb)):\n            if fc == 'B':\n                if wcount.get(gc, 0) > 0:\n                    # gc appears as G/Y elsewhere; word must have exactly that many\n                    if w.count(gc) != wcount[gc]: return False\n                else:\n                    if gc in w: return False\n        for gc, cnt in wcount.items():\n            if w.count(gc) < cnt: return False\n        return True\n    cand = [w for w in cand if ok(w)]\nprint(len(cand))\nfrom collections import Counter\nfreq = Counter(''.join(cand))\npos = [Counter(w[i] for w in cand) for i in range(5)]\ndef score(w):\n    return sum(freq[ch] for ch in set(w)) + sum(pos[i][w[i]] for i in range(5))\nfor w in sorted(cand, key=lambda w: (-score(w), w))[:20]:\n    print(w, score(w))",
+   "out": "5\nshall 30\nsmall 30\nstaff 26\nstand 26\nusual 24"
+  },
+  {
+   "round": 4,
+   "run": "B",
+   "event": "repl",
+   "guess_no": 2,
+   "code": "cand = WORDS[:]\nfor g, fb in HISTORY:\n    def ok(w):\n        wcount = {}\n        for i,(gc,fc) in enumerate(zip(g,fb)):\n            if fc in 'GY':\n                if fc=='G' and w[i]!=gc: return False\n                if fc=='Y' and w[i]==gc: return False\n                wcount[gc]=wcount.get(gc,0)+1\n        for i,(gc,fc) in enumerate(zip(g,fb)):\n            if fc=='B':\n                if gc in wcount:\n                    if w.count(gc)!=wcount[gc]: return False\n                else:\n                    if gc in w: return False\n        for gc,c in wcount.items():\n            if w.count(gc)<c: return False\n        return True\n    cand=[w for w in cand if ok(w)]\nprint(cand)\n\ndef fb_for(g,w):\n    res=['B']*5\n    used=[False]*5\n    for i in range(5):\n        if g[i]==w[i]:\n            res[i]='G'; used[i]=True\n    for i in range(5):\n        if res[i]=='G': continue\n        for j in range(5):\n            if not used[j] and g[i]==w[j]:\n                res[i]='Y'; used[j]=True; break\n    return ''.join(res)\n\nimport math\nbest=[]\nfor g in WORDS:\n    parts={}\n    for w in cand:\n        f=fb_for(g,w)\n        parts.setdefault(f,0)\n        parts[f]+=1\n    # entropy\n    n=len(cand)\n    ent=-sum((c/n)*math.log2(c/n) for c in parts.values())\n    worst=max(parts.values())\n    best.append((ent,worst,g,parts))\nbest.sort(key=lambda x:(-x[0],x[1]))\nfor e,wo,g,p in best[:8]:\n    print(g, round(e,3), wo, p)",
+   "out": "['shall', 'small', 'staff', 'stand', 'usual']\nchild 2.322 1 {'BGBGB': 1, 'BBBGB': 1, 'BBBBB': 1, 'BBBBG': 1, 'BBBYB': 1}\ndeath 2.322 1 {'BBGBY': 1, 'BBGBB': 1, 'BBGYB': 1, 'YBGYB': 1, 'BBYBB': 1}\nflash 2.322 1 {'BYGYY': 1, 'BYGYB': 1, 'YBGYB': 1, 'BBGYB': 1, 'BYYYB': 1}\nhuman 2.322 1 {'YBBYB': 1, 'BBYYB': 1, 'BBBYB': 1, 'BBBYY': 1, 'BYBGB': 1}\nlunch 2.322 1 {'YBBBY': 1, 'YBBBB': 1, 'BBBBB': 1, 'BBYBB': 1, 'YYBBB': 1}\nmeant 2.322 1 {'BBGBB': 1, 'YBGBB': 1, 'BBGBY': 1, 'BBGGY': 1, 'BBYBB': 1}\nmonth 2.322 1 {'BBBBY': 1, 'YBBBB': 1, 'BBBYB': 1, 'BBYYB': 1, 'BBBBB': 1}\nmount 2.322 1 {'BBBBB': 1, 'YBBBB': 1, 'BBBBY': 1, 'BBBGY': 1, 'BBGBB': 1}"
+  },
+  {
+   "round": 4,
+   "run": "B",
+   "event": "guess",
+   "guess_no": 2,
+   "guess": "human",
+   "feedback": "BBBYY",
+   "left": 1,
+   "tokens": 13551,
+   "repl_runs": 3
+  },
+  {
+   "round": 4,
+   "run": "B",
+   "event": "repl",
+   "guess_no": 3,
+   "code": "cand = WORDS[:]\nfor g, fb in HISTORY:\n    def ok(w):\n        wcount = {}\n        for i,(gc,fc) in enumerate(zip(g,fb)):\n            if fc in 'GY':\n                if fc=='G' and w[i]!=gc: return False\n                if fc=='Y' and w[i]==gc: return False\n                wcount[gc]=wcount.get(gc,0)+1\n        for i,(gc,fc) in enumerate(zip(g,fb)):\n            if fc=='B':\n                if gc in wcount:\n                    if w.count(gc)!=wcount[gc]: return False\n                else:\n                    if gc in w: return False\n        for gc,c in wcount.items():\n            if w.count(gc)<c: return False\n        return True\n    cand=[w for w in cand if ok(w)]\nprint(cand)",
+   "out": "['stand']"
+  },
+  {
+   "round": 4,
+   "run": "B",
+   "event": "guess",
+   "guess_no": 3,
+   "guess": "stand",
+   "feedback": "GGGGG",
+   "left": 1,
+   "tokens": 17220,
+   "repl_runs": 4
+  },
+  {
+   "round": 5,
+   "run": "A",
+   "event": "guess",
+   "guess_no": 1,
+   "guess": "audio",
+   "feedback": "BBBBB",
+   "left": 39,
+   "tokens": 721
+  },
+  {
+   "round": 5,
+   "run": "B",
+   "event": "repl",
+   "guess_no": 1,
+   "code": "from collections import Counter\nfreq = Counter(c for w in WORDS for c in set(w))\nprint(sorted(((sum(freq[c] for c in set(w)), w) for w in WORDS), reverse=True)[:10])",
+   "out": "[(944, 'later'), (944, 'alter'), (944, 'alert'), (925, 'heart'), (925, 'earth'), (913, 'trade'), (912, 'raise'), (912, 'arise'), (901, 'store'), (894, 'laser')]"
+  },
+  {
+   "round": 5,
+   "run": "B",
+   "event": "guess",
+   "guess_no": 1,
+   "guess": "later",
+   "feedback": "BBBYB",
+   "left": 29,
+   "tokens": 2453,
+   "repl_runs": 1
+  },
+  {
+   "round": 5,
+   "run": "B",
+   "event": "repl",
+   "guess_no": 2,
+   "code": "hist = [('later','BBBYB')]\ndef ok(w, g, fb):\n    # handle duplicates\n    for i,(gc,f) in enumerate(zip(g,fb)):\n        if f=='G':\n            if w[i]!=gc: return False\n        elif f=='Y':\n            if w[i]==gc: return False\n            if gc not in w: return False\n        else:\n            if gc in w:\n                # account for duplicates: if gc appears elsewhere in g with G/Y, allows limited copies\n                # simplest: count occurrences of gc in g that are not B\n                allowed = sum(1 for j,(gg,ff) in enumerate(zip(g,fb)) if gg==gc and ff!='B')\n                if w.count(gc) > allowed: return False\n    return True\ncands = [w for w in WORDS if all(ok(w,g,fb) for g,fb in hist)]\nprint(len(cands), cands[:50])",
+   "out": "29 ['begin', 'being', 'bench', 'check', 'chose', 'enemy', 'enjoy', 'guess', 'guide', 'hence', 'house', 'issue', 'judge', 'mouse', 'movie', 'needs', 'noise', 'phone', 'piece', 'scene', 'scope', 'sense', 'since', 'smoke', 'spend', 'spoke', 'undue', 'voice', 'whose']"
+  },
+  {
+   "round": 5,
+   "run": "B",
+   "event": "repl",
+   "guess_no": 2,
+   "code": "from collections import Counter\ndef fb(w,g):\n    res=['B']*5\n    gc=Counter(g)\n    for i in range(5):\n        if w[i]==g[i]: res[i]='G'; gc[g[i]]-=1\n    for i in range(5):\n        if res[i]=='B' and gc.get(w[i],0)>0:\n            res[i]='Y'; gc[w[i]]-=1\n    return ''.join(res)\n\nbest=[]\nfor g in WORDS:\n    cnt=Counter(fb(w,g) for w in cands)\n    best.append((max(cnt.values()), -len(cnt), g))\nbest.sort()\nprint(best[:10])",
+   "out": "Traceback (most recent call last):\n  File \"/var/folders/2_/9kplt3pd4sn8s9167_m4h6br0000gn/T/tmpuit54xc2.py\", line 16, in <module>\n    cnt=Counter(fb(w,g) for w in cands)\n                                 ^^^^^\nNameError: name 'cands' is not defined"
+  },
+  {
+   "round": 5,
+   "run": "B",
+   "event": "guess",
+   "guess_no": 2,
+   "guess": "since",
+   "feedback": "BBYBY",
+   "left": 2,
+   "tokens": 7048,
+   "repl_runs": 3
+  },
+  {
+   "round": 5,
+   "run": "B",
+   "event": "repl",
+   "guess_no": 3,
+   "code": "from collections import Counter\nhist = [('later','BBBYB'), ('since','BBYBY')]\ndef ok(w, g, fb):\n    for i,(gc,f) in enumerate(zip(g,fb)):\n        if f=='G':\n            if w[i]!=gc: return False\n        elif f=='Y':\n            if w[i]==gc: return False\n            if gc not in w: return False\n        else:\n            allowed = sum(1 for j,(gg,ff) in enumerate(zip(g,fb)) if gg==gc and ff!='B')\n            if w.count(gc) > allowed: return False\n    return True\ncands = [w for w in WORDS if all(ok(w,g,fb) for g,fb in hist)]\n\ndef fbk(w,g):\n    res=['B']*5; gc=Counter(g)\n    for i in range(5):\n        if w[i]==g[i]: res[i]='G'; gc[g[i]]-=1\n    for i in range(5):\n        if res[i]=='B' and gc.get(w[i],0)>0:\n            res[i]='Y'; gc[w[i]]-=1\n    return ''.join(res)\n\nbest=[]\nfor g in WORDS:\n    cnt=Counter(fbk(w,g) for w in cands)\n    best.append((max(cnt.values()), -len(cnt), g))\nbest.sort()\nprint(len(cands), cands[:40])\nprint(best[:8])",
+   "out": "2 ['enemy', 'enjoy']\n[(1, -2, 'about'), (1, -2, 'above'), (1, -2, 'actor'), (1, -2, 'admit'), (1, -2, 'adopt'), (1, -2, 'agent'), (1, -2, 'agree'), (1, -2, 'ahead')]"
+  },
+  {
+   "round": 5,
+   "run": "B",
+   "event": "guess",
+   "guess_no": 3,
+   "guess": "enemy",
+   "feedback": "GGGGG",
+   "left": 1,
+   "tokens": 11212,
+   "repl_runs": 4
+  }
+ ]
+}

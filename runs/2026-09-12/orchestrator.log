@@ -1,0 +1,44 @@
+<site-packages>/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+============================================================
+DEMO: Multi-Agent Orchestrator-Worker System
+============================================================
+
+🎯 Orchestrator received task: Create a blog post about quantum computing with code examples
+
+📋 Step 1: Decomposing task...
+
+👥 Step 2: Assigning to workers...
+🔧 ResearchBot working on: Research the main topic
+🔧 WriteBot working on: Outline the blog structure
+🔧 WriteBot working on: Write the content
+🔧 CodeBot working on: Add code examples
+
+🔗 Step 3: Synthesizing results...
+
+✅ Final Result:
+# Quantum Computing for Developers: How It Works + 3 Code Examples You Can Run Today
+
+**Meta Description:** Curious about quantum computing? Learn qubits, superposition & entanglement in plain English, plus 3 runnable Python (Qiskit) code examples.
+**URL Slug:** `/quantum-computing-for-developers`
+**Category:** Emerging Tech | Tags: Quantum Computing, Python, Qiskit, Tutorial
+
+---
+
+### TL;DR / Key Takeaways
+* **Classical bits are 0 OR 1. Qubits are 0 AND 1** (superposition) until measured.
+* **Entanglement** links qubits so they act as one system - the source of quantum speedup.
+* You don't need a physics PhD or a quantum computer - you can simulate it all on your laptop with Python + Qiskit.
+* In this post you'll build: 1) A quantum coin flip, 2) An entangled Bell State, 3) Interference in action.
+
+**Table of Contents**
+* 1. Why Quantum Computing Matters Right Now
+* 2. Qubits, Superposition & Entanglement in 5 Minutes
+* 3. Let's Code: Your First 3 Quantum Circuits
+* 4. What Is Quantum Actually Good For?
+* 5. Common Mistakes & Myths to Avoid
+* Conclusion + What to Try Next
+
+---
+
+##
