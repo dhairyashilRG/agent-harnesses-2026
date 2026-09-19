@@ -1,0 +1,22 @@
+# Secrets
+.env
+demos/.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Demo scratch output
+demos/workspace/
+agent_states/
+
+# Source PDFs are third-party; fetch them from the ids in sources/README.md
+sources/*.pdf
+
+.DS_Store
+
+# Written by demos/run_all.py
+demo_agent_logs.json
+demo_trace.txt
