@@ -1,0 +1,67 @@
+claim,value,primary_source,status,verified_date,recheck_on_record,used_in
+DeepAgents Terminal Bench 2.0 gain,52.8 -> 66.5 (+13.7) model fixed gpt-5.2-codex,langchain.com/blog/improving-deep-agents-with-harness-engineering,verified,2026-07-17,no,"Ep0,Ep1,Ep3,Ep7"
+DeepAgents rank move,Top 30 -> Top 5,langchain.com/blog/improving-deep-agents-with-harness-engineering,verified,2026-07-17,no,Ep1
+Meta-Harness paper,arXiv 2603.28052 Lee/Nair/Zhang/Lee/Khattab/Finn 2026-03-30,sources/meta-harness-2603.28052.pdf,verified,2026-07-18,no,"Ep1,Ep5"
+Meta-Harness text classification,+7.7 pts / 4x fewer tokens,sources/meta-harness-2603.28052.pdf,verified,2026-07-18,no,"Ep1,Ep5"
+Meta-Harness IMO,+4.7 pts / 200 problems / 5 held-out models,sources/meta-harness-2603.28052.pdf,verified,2026-07-18,no,Ep5
+Meta-Harness coding,surpasses best hand-engineered baselines on TerminalBench-2,sources/meta-harness-2603.28052.pdf,verified,2026-07-18,no,"Ep1,Ep5"
+TerminalBench-2 == Terminal Bench 2.0,same benchmark (v2); sources spell it differently,cross-source,assumed,2026-07-18,yes,
+OpenAI Codex ~1M lines no manual source code,internal beta product,infoq.com/news/2026/02/openai-harness-engineering-codex,verified,2026-07-18,no,Ep1
+OpenAI Codex 1500 PRs / 3->7 eng / 3.5 per day / 1-10th time / five months,granular figures,openai.com/index/harness-engineering,verified,2026-09-09,no,Ep1
+GPT-5.5 ARC-AGI-3,0.43% semi-private standard harness,arcprize.org/blog/arc-agi-3-gpt-5-5-opus-4-7-analysis,verified,2026-07-18,no,Ep6
+Opus 4.7 ARC-AGI-3,0.18% semi-private standard harness,arcprize.org/blog/arc-agi-3-gpt-5-5-opus-4-7-analysis,verified,2026-07-18,no,Ep6
+Duck leaderboard score,1.21% SELF-REPORTED (not on an ARC Prize page),x.com/tufalabs/status/2072336849465417747,self-reported,2026-07-18,yes,"Ep3,Ep6"
+Duck base model,Qwen 3.6 27B FP8,tufalabs.ai/research/duck-harness,verified,2026-07-18,no,"Ep3,Ep4,Ep6"
+Duck public-games mean,1.6002 +/- 0.4475 UNITS UNSTATED,tufalabs.ai/research/duck-harness,verified-unitless,2026-07-18,no,Ep6
+Duck cost,order of magnitude cheaper per game vs EWM+GPT-5.4,tufalabs.ai/research/duck-harness,verified,2026-07-18,no,"Ep4,Ep6"
+Duck key quote,solvability depends on model capability; cost dictated by harness,tufalabs.ai/research/duck-harness,verified,2026-07-18,no,"Ep4,Ep6,Ep8"
+EWM public 25-game,58.12% RHAE GPT-5.5 15/25 solved,sources/executable-world-models-2605.05138.pdf,verified,2026-07-18,no,"Ep6,Ep8"
+EWM GPT-5.4,41.29% RHAE 8/25 solved,sources/executable-world-models-2605.05138.pdf,verified,2026-07-18,no,Ep6
+EWM private-set caveat,not yet available to us; remains to be tested,sources/executable-world-models-2605.05138.pdf,verified,2026-07-18,no,"Ep6,Ep8"
+EWM cost,$200/mo ChatGPT Pro for roughly two to eight games,sources/executable-world-models-2605.05138.pdf,verified,2026-07-18,no,"Ep1,Ep4,Ep6"
+Milestone 1 prize,$37.5K ran through June 30,arcprize.org/blog/arc-prize-2026-milestone-1,verified,2026-07-18,no,Ep6
+Milestone 1 top three,Tufa Duck / Reki / forge; no scores or criteria published,arcprize.org/blog/arc-prize-2026-milestone-1,verified,2026-07-18,no,Ep6
+Symbolica public set,36.08% author says unverified,symbolica.ai/blog/arc-agi-3,self-reported,2026-07-17,yes,Ep6
+RHAE formula,min(1.15 (human/ai)**2),docs.arcprize.org/methodology,verified,2026-07-17,no,Ep6
+Human baseline,median first-time player 458 participants SF ~100%,arcprize.org/blog/arc-agi-3-human-dataset,verified,2026-07-17,no,Ep6
+ARC-AGI-1 2024,private eval 33% -> 55.5% (NOT ARC-AGI-3),sources/arc-agi-1-2412.04604.pdf,verified,2026-07-18,no,Ep6
+ETCLOVG survey status,under review TMLR; 110+ papers 23+ systems,openreview.net/forum?id=3hXEPbG0dh,retired-claim-dropped,2026-09-09,no,
+AI SDK 7 HarnessAgent,GA SDK; HarnessAgent experimental (2026-06-25),vercel.com/blog/ai-sdk-7,verified,2026-07-17,no,"Ep4,Ep7"
+SWE-bench numbers,moves monthly - pull live,swebench.com,live-check,2026-07-18,yes,Ep6
+Kaggle ARC-AGI-3 top,~1.86 own scale ~50% test data,kaggle.com/competitions/arc-prize-2026-arc-agi-3,live-check,2026-07-17,yes,Ep6
+Anthropic model id for demos,claude-sonnet-5 (env ANTHROPIC_MODEL),system/vendor,live-check,2026-07-18,yes,
+GPT-6 Astra standard harness,62.7% ARC-AGI-3 semi-private ($26K),arcprize.org/blog/astra,verified,2026-09-09,yes,"Ep0,Ep1,Ep6,Ep8"
+GPT-6 Astra provider adapter harness,99.9% ARC-AGI-3 semi-private ($19K),arcprize.org/blog/astra,verified,2026-09-09,yes,"Ep0,Ep1,Ep6,Ep8"
+Astra vs human action efficiency,fewer actions than human baseline on 96.0% of levels; 51.7% fewer per level,arcprize.org/blog/astra,verified,2026-09-09,no,Ep6
+Astra built its own per-game tools,board parsers/game-state models/search/planners/persistent notes,arcprize.org/blog/astra,verified,2026-09-09,no,"Ep5,Ep6"
+ARC Prize saturation caveat,saturating the benchmark would not represent proof of achieving AGI,arcprize.org/blog/astra,verified,2026-09-09,no,Ep6
+ARC-AGI-3 run costs,humans ~$12.78 per attempted game; AI runs $17332-$49791,arcprize.org/blog/astra,verified,2026-09-09,no,Ep6
+Claude Opus 5 ARC-AGI-3,30.16% (2026-07-24),arcprize.org/results,verified,2026-09-09,yes,Ep6
+GPT-5.6 ARC-AGI-3,7.78% (2026-07-09),arcprize.org/results,verified,2026-09-09,yes,Ep6
+ARC-AGI-3 Milestone 2,closes 2026-09-30; $25K/$10K/$2.5K; results 2026-12-04,arcprize.org/competitions/2026,verified,2026-09-09,yes,Ep6
+ETCLOVG attribution,Li et al. 'Agent harness engineering: A survey' OpenReview preprint - seven layers,arXiv 2606.20683 ref[56],verified,2026-09-09,no,"Ep1,Ep3"
+Six-component harness tuple,Meng et al. H=(E T C S L V); 110+ papers 23 systems - NOT the ETCLOVG paper,preprints.org 10.20944/preprints202604.0428,verified,2026-09-09,no,Ep3
+Field is at ~1% framing,OBSOLETE - superseded by Astra ~99.9% (Sep 2026),superseded 2026-09-09,obsolete,2026-09-09,no,Ep6 rewritten; V6 replaced
+Self-Harness paper,arXiv 2606.09498 - REAL (was wrongly deleted as fabricated),sources/self-harness-2606.09498.pdf,verified,2026-09-09,no,Ep5
+HarnessX paper,arXiv 2606.14249 Darwin Agent Team - REAL (was wrongly deleted),sources/harnessx-2606.14249.pdf,verified,2026-09-09,no,"Ep5,Ep8"
+Agentic Harness Engineering (AHE),arXiv 2604.25850 - observability-driven automatic harness evolution,sources/agentic-harness-eng-observability-2604.25850.pdf,verified,2026-09-09,no,"Ep5,Ep7"
+Stop Comparing (2605.23950) harness-only gain,69.7 -> 77.0 TB-2 pass@1 GPT-5.4 high; cited from Lin et al. 2026 AHE,arxiv.org/abs/2605.23950,verified-secondary-in-paper,2026-09-12,yes,Ep6
+Stop Comparing scaffold-only variation SWE-bench Verified,up to 15 pts (third-party monitoring),arxiv.org/abs/2605.23950,verified,2026-09-12,yes,Ep6
+Stop Comparing disclosure standard,ETCSOVG seven layers + variance decomposition protocol,arxiv.org/abs/2605.23950,verified,2026-09-12,no,"Ep3,Ep6"
+Harness-Bench (2605.27922) scale,106 tasks; 5194 trajectories; 6 harnesses x 8 models,arxiv.org/abs/2605.27922,verified,2026-09-12,no,Ep6
+Harness-Bench headline gap,NanoBot 76.2% vs OpenClaw 52.4% (23.8 pts); Codex ref 80.4%,arxiv.org/abs/2605.27922,verified,2026-09-12,no,Ep6
+Scaffold Effects on GAIA (2606.08529),scaffold alone moves accuracy up to 28 pts within one model (Opus 4.7 L2); pre-registered >=10 confirmed,arxiv.org/abs/2606.08529,verified,2026-09-12,no,Ep6
+Scaffold Effect in Coding Agents (2607.22585) cost,tokens per solved task up to 40x (Goose 28k vs OpenCode 1.15M-1.55M); pass-rate 0-8 pts; 300 trials TB-Pro,arxiv.org/abs/2607.22585,verified,2026-09-12,no,"Ep4,Ep6"
+Scaffold Effect failure taxonomy,REASON/VERIFY/TIME/MAX_TURNS/HANG/ERROR,arxiv.org/abs/2607.22585,verified,2026-09-12,no,"Ep2,Ep7"
+ALE Does the Harness Matter,model sweep 18.0 pts vs fixed-model harness sweep 5-6 pts,agents-last-exam.org/blogs/harness-matters,verified,2026-09-12,yes,"Ep6,Ep8"
+ALE lean harness cost,ALE-Claw = OpenClaw accuracy; 44% fewer input tokens; 41% lower cost; 60% less wall-clock,agents-last-exam.org/blogs/harness-matters,verified,2026-09-12,yes,"Ep6,Ep7"
+Survey QA->TC (2606.20683) runtime responsibilities,observation; context; control; action; state; verification; open problem model-harness co-evolution,arxiv.org/abs/2606.20683,verified,2026-09-12,no,"Ep3,Ep8"
+Eleven-systems study (2609.00006) scope,11 systems; 7 subsystems; 29 patterns; 13 observations; 18 recommendations; 90-line MVH; CC BY 4.0,arxiv.org/abs/2609.00006,verified,2026-09-12,no,Ep3
+Eleven-systems observation,no production coding harness imports a general agentic framework or uses embedding code retrieval,arxiv.org/abs/2609.00006,verified,2026-09-12,no,"Ep3,Ep8"
+Niklaus Meta-Harness SWE-bench Pro,GLM-5.2 23.2 -> 52.4% pass@1; Gemma 4 15.2 -> 36.0%; 5000 rollouts published,github.com/JoelNiklaus/harness-optimization,verified-repo-readme,2026-09-12,yes,"Ep5,Ep8"
+Niklaus harness non-transfer,harness rankings across models Spearman -0.05,github.com/JoelNiklaus/harness-optimization,verified-repo-readme,2026-09-12,yes,Ep8
+Artificial Analysis Coding Agent Index,launched May 2026; v1.5 = mean of DeepSWE v1.1 + Terminal-Bench 4.0 + SWE-Atlas-QnA; model+harness stacks,artificialanalysis.ai/methodology/coding-agents-benchmarking,verified,2026-09-12,yes,Ep6
+AA index cost spread,same model 32x cost across harnesses ($0.07-$2.26 per task),agentconn.com/blog/eval-harness-benchmark-cost-2026 (secondary; find AA primary),secondary,2026-09-12,yes,Ep6
+DeepSeek harness open-sourced,dsh v0.1 developer preview MIT 2026-08-20,infoq.com/news/2026/08/deep-seek-harness (secondary; find repo),secondary,2026-09-12,yes,Ep4
+Terminal-Bench version drift,docs default to 4.0 via Harbor; papers cite 2.0/2.1/Pro,tbench.ai/docs/run-terminal-bench-2-0,verified,2026-09-12,yes,Ep6
+Inspect AI 0.3.12 reliability score,REFUTED - 0.3.12 was released 2024-05-31; latest is 0.3.263 (2026-09-04); no such feature listed,pypi.org/pypi/inspect-ai/json,refuted,2026-09-12,no,
